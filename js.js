@@ -1,5 +1,5 @@
 $("#go").click(function(){
-
+  update();
 }
 
 function enterAddress () {
@@ -44,7 +44,7 @@ function initMap() {
     }
   }
 
-  function calculateAndDisplayRoute(start, end) {
+  function calculateRoute(start, end) {
     directionsService.route({
       origin: start,
       destination: {

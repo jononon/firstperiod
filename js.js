@@ -1,6 +1,6 @@
 $("#go").click(function(){
   update();
-}
+});
 
 function enterAddress () {
 

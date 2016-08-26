@@ -56,9 +56,9 @@ function initMap() {
         var now = new Date();
         now.setHour(8);
         if(now.getDay()==0 || now.getDay()==6) {
-          message = "It's the weekend! There isn't even school today!";
+          message = "<h1><div class=\"alert alert-info\" role=\"alert\">It's the weekend! There isn't even school today!</div></h1>";
         } else if (now.getHours()>=8) {
-          message = "School has started";
+          message = "<h1><div class=\"alert alert-danger\" role=\"alert\">School has started</div></h1>";
         } else {
           arrivalTime = now.getMinutes()+(now.getSeconds()/60)+travelMins;
           if (arrivalTime>60) {
@@ -69,8 +69,8 @@ function initMap() {
             message = "<h1><div class=\"alert alert-success\" role=\"alert\">You'll make school on time.</div></h1>"
           }
           var options = { hour: 'numeric', minute: 'numeric' };
-          message += "<p>It's currently "+(new Intl.DateTimeFormat('en-US', options).format(now))+" and it will take you <b>"+parseInt(travelMins)+" mins</b> to get to school. That means that you'll arrive at <b>XX:XX</b></p>"
         }
+        message += "<p>It's currently "+(new Intl.DateTimeFormat('en-US', options).format(now))+" and it will take you <b>"+parseInt(travelMins)+" mins</b> to get to school. That means that you'll arrive at <b>XX:XX</b></p>"
         $('#result').html(message);
       }
     });

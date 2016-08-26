@@ -1,6 +1,6 @@
 function enterAddress () {
   $('#simpleform').hide();
-  $('#complexform').hide();
+  $('#complexform').show();
 }
 
 function initMap() {

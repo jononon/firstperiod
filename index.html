@@ -14,19 +14,24 @@
     <h2>Will You Be Late to Class?</h2>
     <small>See if you'll be able to drive to Harvard-Westlake Upper School on time.</small>
   </div>
-  <div id=input>
-    <div id=simpleform><button id=go class="btn btn-primary" type="submit" >Find Out</button></div>
-    <div id=complexform style="display:none;">
-      <div class="bs-callout bs-callout-warning" id="callout-dropdown-positioning">
-        <h4>Current location could not be determined</h4>
-        <p>Please allow this website to have access to your current location or type in your location below.</p>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div id=input>
+          <div id=simpleform><button id=go class="btn btn-primary" type="submit" >Find Out</button></div>
+          <div id=complexform style="display:none;">
+            <div class="bs-callout bs-callout-warning" id="callout-dropdown-positioning">
+              <h4>Current location could not be determined</h4>
+              <p>Please allow this website to have access to your current location or type in your location below.</p>
+            </div>
+            <input id="startSearch" type="text" class="form-control" placeholder="Search for an origin">
+              <button id=gocomplex class="btn btn-primary" type="submit" >Find Out</button>
+            </input>
+          </div>
+        </div>
+      <div id=result>
       </div>
-      <input id="startSearch" type="text" class="form-control" placeholder="Search for an origin">
-      <button id=gocomplex class="btn btn-primary" type="submit" >Find Out</button>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFhc05BstM8xqJs8EdHR_9-eG20450hUU&libraries=places&callback=initMap"
+        async defer></script>
+      </div>
     </div>
-  </div>
-  <div id=result>
-  </div>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFhc05BstM8xqJs8EdHR_9-eG20450hUU&libraries=places&callback=initMap"
-    async defer></script>
 </body>

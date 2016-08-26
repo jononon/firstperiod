@@ -87,9 +87,4 @@ function initMap() {
   $("#go").click(function(){
     update();
   });
-
-  $("#gocomplex").click(function(){
-    currLoc=
-    update();
-  });
 }

@@ -54,7 +54,7 @@ function initMap() {
         $('#input').hide();
         travelMins = response.routes[0].legs[0].duration.value/60%60;
         var now = new Date();
-        now.setHour(8);
+        now.setHours(8);
         if(now.getDay()==0 || now.getDay()==6) {
           message = "<h1><div class=\"alert alert-info\" role=\"alert\">It's the weekend! There isn't even school today!</div></h1>";
         } else if (now.getHours()>=8) {

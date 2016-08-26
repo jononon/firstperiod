@@ -2,6 +2,7 @@ function enterAddress () {
   $('#simpleform').hide();
   $('#complexform').show();
 }
+var now = new Date();
 
 function initMap() {
   var originSearchBox = new google.maps.places.SearchBox(document.getElementById('startSearch'));
@@ -53,8 +54,8 @@ function initMap() {
         var message = "";
         $('#input').hide();
         travelMins = response.routes[0].legs[0].duration.value/60%60;
-        var now = new Date();
-        now.setHours(15);
+        //var now = new Date();
+        //now.setHours(15);
         if(now.getDay()==0 || now.getDay()==6) {
           message = "<h1><div class=\"alert alert-info\" role=\"alert\">It's the weekend! There isn't even school today!</div></h1>";
         } else if (now.getHours()>=8) {

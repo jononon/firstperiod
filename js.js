@@ -70,7 +70,9 @@ function initMap() {
           }
         }
         var options = { hour: 'numeric', minute: 'numeric' };
-        message += "<p>It's currently "+(new Intl.DateTimeFormat('en-US', options).format(now))+" and it will take you <b>"+parseInt(travelMins)+" mins</b> to get to school. That means that you'll arrive at <b>XX:XX</b></p>"
+        arrivalHours = now.getHours()+parseInt(now.getMinutes()/60);
+        arrivalMins = now.getMinutes()%60;
+        message += "<p>It's currently "+now.getHours()+":"+now.getMinutes()" and it will take you <b>"+parseInt(travelMins)+" mins</b> to get to school. That means that you'll arrive at <b>"+arrivalHours+":"+arrivalMins+"</b></p>"
         $('#result').html(message);
       }
     });

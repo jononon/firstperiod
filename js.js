@@ -1,5 +1,6 @@
 function enterAddress () {
-
+  $('#simpleform').hide();
+  $('#complexform').hide();
 }
 
 function initMap() {
@@ -25,7 +26,9 @@ function initMap() {
     if (places.length == 0)
       return;
 
-    updateBounds();
+    places.forEach(function(place){
+      currLoc = place.geometry.location;
+    });
     update();
   });
 
@@ -80,9 +83,13 @@ function initMap() {
       update();
     },100);
   });
-  
+
   $("#go").click(function(){
-    console.log("test");
+    update();
+  });
+
+  $("#gocomplex").click(function(){
+    currLoc=
     update();
   });
 }

@@ -54,7 +54,7 @@ function initMap() {
         $('#input').hide();
         travelMins = response.routes[0].legs[0].duration.value/60%60;
         var now = new Date();
-        now.setHours(8);
+        now.setHours(15);
         if(now.getDay()==0 || now.getDay()==6) {
           message = "<h1><div class=\"alert alert-info\" role=\"alert\">It's the weekend! There isn't even school today!</div></h1>";
         } else if (now.getHours()>=8) {
@@ -71,7 +71,7 @@ function initMap() {
         }
         var options = { hour: 'numeric', minute: 'numeric' };
         arrivalMins = parseInt(now.getMinutes()+travelMins%60);
-        arrivalHours = now.getHours()+parseInt(arrivalMins/60);
+        arrivalHours = (now.getHours()+parseInt(arrivalMins/60))%12;
         arrivalMins = arrivalMins%60;
         message += "<p>It's currently "+now.getHours()+":"+now.getMinutes()+" and it will take you <b>"+parseInt(travelMins)+" mins</b> to get to school. That means that you'll arrive at <b>"+arrivalHours+":"+arrivalMins+"</b></p>"
         $('#result').html(message);

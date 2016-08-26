@@ -25,9 +25,6 @@ function initMap() {
     if (places.length == 0)
       return;
 
-    places.forEach(function(place){
-      originMarker.setPosition(place.geometry.location);
-    });
     updateBounds();
     update();
   });
@@ -36,7 +33,7 @@ function initMap() {
 
   function update() {
     if(currLoc != undefined) {
-      calculateRoute(originMarker.position, destMarker.position);
+      calculateRoute()
     }
   }
 
@@ -86,5 +83,6 @@ function initMap() {
 }
 
 $("#go").click(function(){
+  console.log("test");
   update();
 });

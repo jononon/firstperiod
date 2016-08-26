@@ -77,10 +77,8 @@ function initMap() {
   }
 
   setInterval(function() {
-    if(originMarker.position != undefined && destMarker.position != undefined) {
-      console.log("Recalculating");
-      update();
-    }
+    console.log("Recalculating");
+    update();
   },60000);
 
   $("#refresh").click(function(){

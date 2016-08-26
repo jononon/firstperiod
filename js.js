@@ -44,9 +44,9 @@ function initMap() {
     }
   }
 
-  function calculateRoute(start, end) {
+  function calculateRoute() {
     directionsService.route({
-      origin: start,
+      origin: currLoc,
       destination: {
         lat: 34.139459,
         lng: -118.413477
@@ -76,30 +76,17 @@ function initMap() {
     });
   }
 
-  function updateBounds () {
-    var bounds = new google.maps.LatLngBounds();
-    if(originMarker.position != undefined)
-      bounds.extend(originMarker.position);
-    if(destMarker.position != undefined)
-      bounds.extend(destMarker.position);
-    map.fitBounds(bounds);
-    if(map.getZoom()>15)
-      map.setZoom(15);
-  }
-
   setInterval(function() {
     if(originMarker.position != undefined && destMarker.position != undefined) {
       console.log("Recalculating");
-      calculateRides(originMarker.position.lat(), originMarker.position.lng(), destMarker.position.lat(), destMarker.position.lng());
+      update();
     }
   },60000);
 
   $("#refresh").click(function(){
     $("body").addClass("grey");
     setTimeout(function(){
-      if(originMarker.position != undefined && destMarker.position != undefined) {
-        calculateRides(originMarker.position.lat(), originMarker.position.lng(), destMarker.position.lat(), destMarker.position.lng());
-      }
+      update();
     },100);
   });
 }

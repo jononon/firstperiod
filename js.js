@@ -51,6 +51,7 @@ function initMap() {
     }, function(response, status) {
       if(status=='OK'){
         var message;
+        $('#input').hide();
         travelMins = response.routes[0].legs[0].duration.value/60%60;
         var now = new Date();
         if(now.getDay()==0 || now.getDay()==6) {
@@ -60,12 +61,14 @@ function initMap() {
         } else {
           arrivalTime = now.getMinutes()+(now.getSeconds()/60)+travelMins;
           if (arrivalTime>60) {
-            message = "you'll miss it"
+            message = "<h1><div class=\"alert alert-danger\" role=\"alert\">You'll be late.</div></h1>"
           } else if (arrivalTime>=55) {
-            message = "You're cutting it close"
+            message = "<h1><div class=\"alert alert-warning\" role=\"alert\">You'll be cutting it close!</div></h1>"
           } else {
-            message = "you're good"
+            message = "<h1><div class=\"alert alert-success\" role=\"alert\">You'll make school on time.</div></h1>"
           }
+          var options = { hour: 'numeric', minute: 'numeric' };
+          message += "<p>It's currently "+(new Intl.DateTimeFormat('en-US', options).format(now))+" and it will take you <b>"+parseInt(travelMins)+" mins</b> to get to school. That means that you'll arrive at <b>XX:XX</b></p>"
         }
         console.log(message);
       }

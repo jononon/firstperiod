@@ -74,7 +74,7 @@ function initMap() {
         arrivalMins = parseInt(now.getMinutes()+travelMins%60);
         arrivalHours = (now.getHours()+parseInt(arrivalMins/60))%12;
         arrivalMins = arrivalMins%60;
-        message += "<p>It's currently "+now.getHours()+":"+now.getMinutes()+" and it will take you <b>"+parseInt(travelMins)+" mins</b> to get to school. That means that you'll arrive at <b>"+arrivalHours+":"+arrivalMins+"</b></p>"
+        message += "<p>It's currently "+((now.getHours()%12)==0?12:(now.getHours()%12))+":"+now.getMinutes()+" and it will take you <b>"+parseInt(travelMins)+" mins</b> to get to school. That means that you'll arrive at <b>"+arrivalHours+":"+arrivalMins+"</b></p>"
         $('#result').html(message);
       }
     });

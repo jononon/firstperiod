@@ -68,8 +68,8 @@ function initMap() {
           } else {
             message = "<h1><div class=\"alert alert-success\" role=\"alert\">You'll make school on time.</div></h1>"
           }
-          var options = { hour: 'numeric', minute: 'numeric' };
         }
+        var options = { hour: 'numeric', minute: 'numeric' };
         message += "<p>It's currently "+(new Intl.DateTimeFormat('en-US', options).format(now))+" and it will take you <b>"+parseInt(travelMins)+" mins</b> to get to school. That means that you'll arrive at <b>XX:XX</b></p>"
         $('#result').html(message);
       }

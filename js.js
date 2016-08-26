@@ -50,10 +50,11 @@ function initMap() {
       travelMode: google.maps.TravelMode.DRIVING
     }, function(response, status) {
       if(status=='OK'){
-        var message;
+        var message = "";
         $('#input').hide();
         travelMins = response.routes[0].legs[0].duration.value/60%60;
         var now = new Date();
+        now.setHour(8);
         if(now.getDay()==0 || now.getDay()==6) {
           message = "It's the weekend! There isn't even school today!";
         } else if (now.getHours()>=8) {
@@ -70,7 +71,7 @@ function initMap() {
           var options = { hour: 'numeric', minute: 'numeric' };
           message += "<p>It's currently "+(new Intl.DateTimeFormat('en-US', options).format(now))+" and it will take you <b>"+parseInt(travelMins)+" mins</b> to get to school. That means that you'll arrive at <b>XX:XX</b></p>"
         }
-        console.log(message);
+        $('#result').html(message);
       }
     });
   }

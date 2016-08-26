@@ -1,7 +1,3 @@
-$("#go").click(function(){
-  update();
-});
-
 function enterAddress () {
 
 }
@@ -88,3 +84,7 @@ function initMap() {
     },100);
   });
 }
+
+$("#go").click(function(){
+  update();
+});

@@ -70,8 +70,9 @@ function initMap() {
           }
         }
         var options = { hour: 'numeric', minute: 'numeric' };
-        arrivalHours = now.getHours()+parseInt(now.getMinutes()/60);
-        arrivalMins = now.getMinutes()%60;
+        arrivalMins = now.getMinutes()+travelMins%60;
+        arrivalHours = now.getHours()+parseInt(arrivalMins/60);
+        arrivalMins = arrivalMins%60;
         message += "<p>It's currently "+now.getHours()+":"+now.getMinutes()+" and it will take you <b>"+parseInt(travelMins)+" mins</b> to get to school. That means that you'll arrive at <b>"+arrivalHours+":"+arrivalMins+"</b></p>"
         $('#result').html(message);
       }

@@ -80,9 +80,9 @@ function initMap() {
       update();
     },100);
   });
+  
+  $("#go").click(function(){
+    console.log("test");
+    update();
+  });
 }
-
-$("#go").click(function(){
-  console.log("test");
-  update();
-});
